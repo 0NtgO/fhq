@@ -51,6 +51,8 @@ echo '
 					<a class="btn btn-small btn-info" href="javascript:void(0);" onclick="load_content_page(\'teams\');">Teams</a>
 					<a class="btn btn-small btn-info" href="javascript:void(0);" onclick="load_content_page(\'news\');">News</a>
 					<a class="btn btn-small btn-info" href="javascript:void(0);" onclick="load_content_page(\'hacker_girl\');">Hacker girl here</a>
+					<a class="btn btn-small btn-info" href="javascript:void(0);" onclick="load_content_page_yii(\'test\');">Test Yii</a>
+					<a class="btn btn-small btn-info" href="yii/hangman/">hangman</a>
 					<a class="btn btn-small btn-info" href="javascript:void(0);" onclick="exit();">logout</a>
 					</p>
 			</tr>
