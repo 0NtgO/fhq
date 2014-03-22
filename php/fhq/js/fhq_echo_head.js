@@ -27,7 +27,6 @@ function reload_news()
 var myTimerNews;
 if(!myTimerNews) myTimerNews = setInterval(reload_news,10000);
 
-
 function load_content_page(content_page, other_params)
 {
 	if(other_params == 'undefined') other_params = {};
@@ -61,6 +60,41 @@ function load_content_page(content_page, other_params)
 	xmlhttp.open("GET", url ,true);
 	xmlhttp.send();
 };
+
+function load_content_page_yii(content_page, other_params)
+{
+	if(other_params == 'undefined') other_params = {};
+	
+	if (window.XMLHttpRequest) {
+		// code for IE7+, Firefox, Chrome, Opera, Safari
+		xmlhttp=new XMLHttpRequest();
+	};  
+	xmlhttp.onreadystatechange=function() {
+		if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+			if(xmlhttp.responseText == "")
+				document.getElementById("content_page").innerHTML = "content page don't found";
+			else
+			{
+				document.getElementById("content_page").innerHTML=xmlhttp.responseText;
+				// document.getElementById("reload_content").onclick();
+				//reload_news();
+			}
+		}
+	}
+  
+	var url = "yii/" + content_page + "/";
+	
+	for(var key in other_params) {
+		url = url + "&" + key + "=" + encodeURIComponent(other_params[key]);
+	}
+
+	// document.getElementById("debug_info").innerHTML=url;
+	document.getElementById("content_page").innerHTML="<img src='images/Minimap_Loading.gif'/>";
+
+	xmlhttp.open("GET", url ,true);
+	xmlhttp.send();
+};
+
 
 function loadPage() {
 	window.status = "Страница загружена";
